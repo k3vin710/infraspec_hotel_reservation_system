@@ -14,7 +14,7 @@ __email__ = "pattni.kevin@gmail.com"
 
 __all__ = [
     "Hotel",
-    "CustomerType", 
+    "CustomerType",
     "DayType",
     "HotelReservationSystem",
 ]
