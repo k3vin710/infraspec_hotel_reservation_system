@@ -173,7 +173,6 @@ make check         # Run all quality checks
 make run           # Run the application
 make demo          # Run interactive demo
 make clean         # Clean generated files
-make ci            # Run all CI checks locally
 ```
 
 ### Running Tests
@@ -231,8 +230,6 @@ hotel-reservation-system/
 │   └── test_hotel_reservation.py  # Comprehensive unit tests
 ├── scripts/                 # Utility scripts
 │   └── run_demo.py         # Interactive demonstration
-├── .github/workflows/       # CI/CD configuration
-│   └── ci.yml              # GitHub Actions workflow
 ├── pyproject.toml          # Project configuration
 ├── Makefile               # Development automation
 ├── .gitignore             # Git ignore rules
@@ -266,25 +263,6 @@ hotel-reservation-system/
 - Test case validation
 - User-friendly output formatting
 
-## 🚦 CI/CD
-
-This project includes a complete CI/CD pipeline using GitHub Actions:
-
-- **Multi-Python Testing**: Tests against Python 3.8, 3.9, 3.10, 3.11, 3.12
-- **Code Quality Checks**: Formatting, linting, and type checking
-- **Test Coverage**: Automated coverage reporting with Codecov
-- **Build Validation**: Ensures package builds correctly
-- **Automated Releases**: Ready for automated versioning and publishing
-
-### Running CI Locally
-
-```bash
-# Run the same checks as CI
-make ci
-
-# Individual CI steps
-make format lint type-check test validate
-```
 
 ## 📊 Performance
 
