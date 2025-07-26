@@ -65,7 +65,7 @@ class HotelReservationSystem:
                         f"Invalid date format: {date_str}. Expected format: DDMmmYYYY"
                     )
 
-            if not dates:
+            if not dates or all(not d.strip() for d in dates):
                 raise ValueError("At least one date must be provided")
 
             return customer_type, dates
