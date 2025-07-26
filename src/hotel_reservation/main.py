@@ -9,7 +9,7 @@ Supports regular and rewards customers with different pricing tiers.
 from .system import HotelReservationSystem
 
 
-def main():
+def main() -> None:
     """Main function to demonstrate the system"""
     system = HotelReservationSystem()
 

@@ -12,7 +12,7 @@ from .models import Hotel, CustomerType, DayType
 class HotelReservationSystem:
     """Main system for handling hotel reservations"""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the system with Miami hotels data"""
         self.hotels = [
             Hotel("Lakewood", 3, 110, 80, 90, 80),
@@ -51,8 +51,12 @@ class HotelReservationSystem:
 
             # Parse dates
             date_strings = [date.strip() for date in dates_str.split(",")]
-            dates = []
 
+            # Check for empty or all-blank date strings BEFORE parsing
+            if not date_strings or all(not d for d in date_strings):
+                raise ValueError("At least one date must be provided")
+
+            dates = []
             for date_str in date_strings:
                 # Remove day of week in parentheses if present
                 clean_date = re.sub(r"\([^)]*\)", "", date_str).strip()
@@ -64,9 +68,6 @@ class HotelReservationSystem:
                     raise ValueError(
                         f"Invalid date format: {date_str}. Expected format: DDMmmYYYY"
                     )
-
-            if not dates or all(not d.strip() for d in dates):
-                raise ValueError("At least one date must be provided")
 
             return customer_type, dates
 
@@ -146,7 +147,7 @@ class HotelReservationSystem:
         """
         customer_type, dates = self.parse_input(input_str)
 
-        analysis = {
+        analysis: Dict[str, Any] = {
             "customer_type": customer_type.value,
             "dates": [date.strftime("%d%b%Y") for date in dates],
             "hotels": [],
